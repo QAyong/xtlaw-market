@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "format": "compiled",
+        "id": "lexora.auto-title",
+        "name": "标题自动生成",
+        "author": "XTLaw",
+        "description": "根据首条有效输入自动生成任务标题，保留手动命名，也可随任务目标变化更新。",
+        "version": "1.2.2",
+        "apiVersion": 3,
+        "engines": {
+          "lexora": ">=0.1.1 <1.0.0"
+        },
+        "entry": "extension.js",
+        "icon": "icon.svg",
+        "categories": [
+          "效率"
+        ],
+        "tags": [
+          "任务标题",
+          "自动命名",
+          "AI"
+        ],
+        "permissions": {
+          "agent": true,
+          "models": true,
+          "tasks": "title",
+          "taskMessages": true
+        },
+        "contributes": {
+          "settings": {
+            "groups": [
+              {
+                "id": "lexora.auto-title.naming",
+                "module": "settings.runtime",
+                "title": "标题自动生成"
+              }
+            ],
+            "items": [
+              {
+                "id": "lexora.auto-title.enabled",
+                "key": "enabled",
+                "group": "lexora.auto-title.naming",
+                "type": "boolean",
+                "title": "启用",
+                "description": "提交输入后在后台生成一次标题，会额外调用模型；内容不足或失败后可在下次输入时重试。",
+                "default": true,
+                "order": 0
+              },
+              {
+                "id": "lexora.auto-title.model",
+                "key": "model",
+                "group": "lexora.auto-title.naming",
+                "type": "model",
+                "title": "生成标题的模型",
+                "description": "留空使用触发任务当前选择的模型。",
+                "default": null,
+                "order": 1,
+                "enabledWhen": {
+                  "condition": "lexora.auto-title.available",
+                  "params": {
+                    "purpose": "configure"
+                  }
+                }
+              },
+              {
+                "id": "lexora.auto-title.update-on-goal-change",
+                "key": "updateOnGoalChange",
+                "group": "lexora.auto-title.naming",
+                "type": "boolean",
+                "title": "允许随任务目标更新",
+                "description": "每轮回答后额外调用模型评估，仅在任务目标明显变化时更新自动标题。手动标题始终保留。",
+                "default": false,
+                "order": 2,
+                "enabledWhen": {
+                  "condition": "lexora.auto-title.available",
+                  "params": {
+                    "purpose": "configure"
+                  }
+                }
+              }
+            ]
+          },
+          "agent": {
+            "enabledWhen": "enabled",
+            "actions": [
+              {
+                "id": "lexora.auto-title.generate",
+                "title": "重新生成标题",
+                "triggers": [
+                  "task:input:committed",
+                  "task:turn:completed"
+                ],
+                "enabledWhen": {
+                  "condition": "lexora.auto-title.runnable"
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "id": "lexora.auto-title.available",
+              "inputs": [
+                "configuration",
+                "form"
+              ]
+            },
+            {
+              "id": "lexora.auto-title.runnable",
+              "inputs": [
+                "configuration",
+                "runtime.models",
+                "runtime.task"
+              ]
+            }
+          ]
+        }
+      },
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiBmaWxsPSJub25lIj4KICA8cmVjdCB4PSIyIiB5PSIyIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHJ4PSIxNiIgZmlsbD0iI0U5RUVGOCIvPgogIDxyZWN0IHg9IjE0IiB5PSIxMyIgd2lkdGg9IjM0IiBoZWlnaHQ9IjQyIiByeD0iNiIgZmlsbD0iI0NBRDVFOSIvPgogIDxyZWN0IHg9IjEyIiB5PSIxMCIgd2lkdGg9IjM0IiBoZWlnaHQ9IjQyIiByeD0iNiIgZmlsbD0iI0ZGRkRGOCIgc3Ryb2tlPSIjNDU2MThCIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIxOSIgeT0iMTkiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMi41IiBmaWxsPSIjNDU2MThCIi8+CiAgPHBhdGggZD0iTTIwIDMyaDE0TTIwIDM5aDkiIHN0cm9rZT0iI0E2QjZDRiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJtMzMgNDYgMi04IDE0LTE0YTMuNSAzLjUgMCAwIDEgNSA1TDQwIDQzbC03IDNaIiBmaWxsPSIjRUFCODZCIiBzdHJva2U9IiM3OTU4MzgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Im00NiAyNyA1IDVNMzUgMzhsNSA1IiBzdHJva2U9IiM3OTU4MzgiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwYXRoIGQ9Im0zMyA0NiAyLTggNSA1LTcgM1oiIGZpbGw9IiNGRkZERjgiLz4KPC9zdmc+Cg==",
+      "repository": "https://github.com/QAyong/xtlaw-plugins",
+      "artifact": {
+        "url": "https://github.com/QAyong/xtlaw-plugins/releases/download/auto-title-v1.2.2/auto-title-1.2.2.lexora-extension",
+        "sha256": "504132ea4961b5d1a817170c35ecc3792d6284004f03593c85386f4549b4ee62",
+        "size": 5024
+      }
+    }
+  ]
+}
