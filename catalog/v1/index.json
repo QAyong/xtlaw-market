@@ -126,6 +126,191 @@
         "sha256": "504132ea4961b5d1a817170c35ecc3792d6284004f03593c85386f4549b4ee62",
         "size": 5024
       }
+    },
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "format": "compiled",
+        "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office",
+        "name": "Office DOCX",
+        "author": "XTLaw官方",
+        "description": "用文件管理器里的 DOCX 直接预览、编辑并保存。",
+        "version": "0.1.7",
+        "icon": "icon.svg",
+        "categories": [
+          "办公"
+        ],
+        "tags": [
+          "DOCX",
+          "Word",
+          "文档编辑"
+        ],
+        "apiVersion": 4,
+        "engines": {
+          "lexora": ">=0.1.0 <1.0.0"
+        },
+        "entry": "extension.js",
+        "permissions": {
+          "selectedResource": "read",
+          "selectedResourceWrite": true,
+          "composerReference": true,
+          "localResources": true,
+          "resourceExport": true
+        },
+        "contributes": {
+          "views": [
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office.editor",
+              "title": "Office DOCX",
+              "entry": "view.js",
+              "resource": "none",
+              "location": "context"
+            },
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office.document",
+              "title": "Office DOCX",
+              "entry": "view.js",
+              "resource": "selected-file",
+              "accepts": {
+                "extensions": [
+                  "docx"
+                ]
+              },
+              "location": "context"
+            }
+          ]
+        }
+      },
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiM0YjZjOWMiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTAgMTBoNk0xMCAxM2g2TTEwIDE2aDQiIHN0cm9rZT0iIzRiNmM5YyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjIiIHk9IjciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjEuNSIgZmlsbD0iIzRiNmM5YyIvPgogIDxwYXRoIGQ9Im00IDEwIDEgNSAyLTQgMiA0IDEtNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "repository": "https://github.com/QAyong/xtlaw-plugins",
+      "artifact": {
+        "url": "https://github.com/QAyong/xtlaw-plugins/releases/download/office-v0.1.7/office-0.1.7.lexora-extension",
+        "sha256": "55419a1b19018d296f77d0860a616abb016b680af1420caa1348e29ec82dda88",
+        "size": 12408125
+      }
+    },
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "format": "compiled",
+        "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pptx",
+        "name": "Office PPTX",
+        "author": "XTLaw官方",
+        "description": "用 Slides 编辑器打开、编辑并保存 PPTX，可引用到聊天。",
+        "version": "0.4.10",
+        "icon": "icon.svg",
+        "categories": [
+          "办公"
+        ],
+        "tags": [
+          "PPTX",
+          "PowerPoint",
+          "幻灯片"
+        ],
+        "apiVersion": 4,
+        "engines": {
+          "lexora": ">=0.1.0 <1.0.0"
+        },
+        "entry": "extension.js",
+        "permissions": {
+          "selectedResource": "read",
+          "selectedResourceWrite": true,
+          "composerReference": true,
+          "resourceExport": true
+        },
+        "contributes": {
+          "views": [
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pptx.viewer",
+              "title": "Office PPTX",
+              "entry": "view.js",
+              "resource": "none",
+              "location": "context"
+            },
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pptx.presentation",
+              "title": "Office PPTX",
+              "entry": "view.js",
+              "resource": "selected-file",
+              "accepts": {
+                "extensions": [
+                  "pptx"
+                ]
+              },
+              "location": "context"
+            }
+          ]
+        }
+      },
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiNjNDNlMWMiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTAuNSAxMi41djRNMTMuNSAxMC41djZNMTYuNSAxNHYyLjUiIHN0cm9rZT0iI2M0M2UxYyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjIiIHk9IjciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjEuNSIgZmlsbD0iI2M0M2UxYyIvPgogIDxwYXRoIGQ9Ik01IDE2VjkuNWgyLjNhMS45IDEuOSAwIDAgMSAwIDMuOEg1IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "repository": "https://github.com/QAyong/xtlaw-plugins",
+      "artifact": {
+        "url": "https://github.com/QAyong/xtlaw-plugins/releases/download/office-pptx-v0.4.10/office-pptx-0.4.10.lexora-extension",
+        "sha256": "12475944bf5024209988310759506fed0a55e8cb1c719a284fa378803c671702",
+        "size": 5796372
+      }
+    },
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "format": "compiled",
+        "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-xlsx",
+        "name": "Office XLSX",
+        "author": "XTLaw官方",
+        "description": "用 Sheets 编辑器打开、编辑并保存 XLSX，可引用到聊天。",
+        "version": "0.3.12",
+        "icon": "icon.svg",
+        "categories": [
+          "办公"
+        ],
+        "tags": [
+          "XLSX",
+          "Excel",
+          "电子表格"
+        ],
+        "apiVersion": 4,
+        "engines": {
+          "lexora": ">=0.1.0 <1.0.0"
+        },
+        "entry": "extension.js",
+        "permissions": {
+          "selectedResource": "read",
+          "selectedResourceWrite": true,
+          "composerReference": true,
+          "resourceExport": true,
+          "webAssembly": true
+        },
+        "contributes": {
+          "views": [
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-xlsx.viewer",
+              "title": "Office XLSX",
+              "entry": "view.js",
+              "resource": "none",
+              "location": "context"
+            },
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-xlsx.workbook",
+              "title": "Office XLSX",
+              "entry": "view.js",
+              "resource": "selected-file",
+              "accepts": {
+                "extensions": [
+                  "xlsx"
+                ]
+              },
+              "location": "context"
+            }
+          ]
+        }
+      },
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiMxZDdhNDYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTEgMTFoOE0xMSAxNGg4TTExIDE3aDhNMTQgOC41djExIiBzdHJva2U9IiMxZDdhNDYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cmVjdCB4PSIyIiB5PSI3IiB3aWR0aD0iMTAiIGhlaWdodD0iMTEiIHJ4PSIxLjUiIGZpbGw9IiMxZDdhNDYiLz4KICA8cGF0aCBkPSJtNC42IDEwLjIgNC44IDUuNm0wLTUuNi00LjggNS42IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "repository": "https://github.com/QAyong/xtlaw-plugins",
+      "artifact": {
+        "url": "https://github.com/QAyong/xtlaw-plugins/releases/download/office-xlsx-v0.3.12/office-xlsx-0.3.12.lexora-extension",
+        "sha256": "0998b721d8a5f79112e650cc3cc2f43dabc592f8e88a55ef6bfeb4fb9db1ba8e",
+        "size": 7460881
+      }
     }
   ]
 }
