@@ -34,14 +34,15 @@ async function listFiles(directory, base = directory) {
 async function buildPlugin(name) {
   const directory = join(root, 'plugins', name)
   const manifest = JSON.parse(await readFile(join(directory, 'extension.json'), 'utf8'))
-  assert(manifest.format === 'source' && /\.ts$/.test(manifest.entry), `${name}: expected a TypeScript source plugin`)
+  assert(['source', 'compiled'].includes(manifest.format), `${name}: expected a source or compiled plugin`)
+  assert(manifest.format !== 'source' || /\.m?ts$/.test(manifest.entry), `${name}: expected a TypeScript source entry`)
   const output = {}
   for (const file of await listFiles(directory)) {
     // Type declarations are development-only; sources are replaced by compiled modules.
     if (file.endsWith('.d.ts') || file === 'extension.json')
       continue
     const bytes = await readFile(join(directory, file))
-    if (/\.m?ts$/.test(file)) {
+    if (manifest.format === 'source' && /\.m?ts$/.test(file)) {
       const result = ts.transpileModule(bytes.toString('utf8'), { fileName: file, reportDiagnostics: true, compilerOptions })
       const errors = (result.diagnostics ?? []).filter(item => item.category === ts.DiagnosticCategory.Error)
       assert(errors.length === 0, `${name}/${file}: ${errors.map(item => ts.flattenDiagnosticMessageText(item.messageText, ' ')).join('; ')}`)
@@ -51,8 +52,9 @@ async function buildPlugin(name) {
       output[file] = [bytes, { mtime }]
     }
   }
-  const compiled = { ...manifest, format: 'compiled', entry: manifest.entry.replace(/\.(m?)ts$/, '.$1js') }
-  output['extension.json'] = [Buffer.from(`${JSON.stringify(compiled, null, 2)}\n`), { mtime }]
+  const compiled = manifest.format === 'source' ? { ...manifest, format: 'compiled', entry: manifest.entry.replace(/\.(m?)ts$/, '.$1js') } : manifest
+  const manifestBytes = manifest.format === 'source' ? Buffer.from(`${JSON.stringify(compiled, null, 2)}\n`) : await readFile(join(directory, 'extension.json'))
+  output['extension.json'] = [manifestBytes, { mtime }]
   assert(output[compiled.entry], `${name}: compiled entry is missing`)
   const bytes = zipSync(output, { level: 6 })
   const file = `${name}-${manifest.version}.lexora-extension`
