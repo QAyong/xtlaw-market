@@ -35,7 +35,8 @@ async function buildPlugin(name) {
   const directory = join(root, 'plugins', name)
   const manifest = JSON.parse(await readFile(join(directory, 'extension.json'), 'utf8'))
   assert(['source', 'compiled'].includes(manifest.format), `${name}: expected a source or compiled plugin`)
-  assert(manifest.format !== 'source' || /\.m?ts$/.test(manifest.entry), `${name}: expected a TypeScript source entry`)
+  // Declarative plugins (for example multi-shell) have no entry; otherwise it must be TypeScript.
+  assert(manifest.format !== 'source' || !manifest.entry || /\.m?ts$/.test(manifest.entry), `${name}: expected a TypeScript source entry`)
   const output = {}
   for (const file of await listFiles(directory)) {
     // Type declarations are development-only; sources are replaced by compiled modules.
@@ -52,10 +53,10 @@ async function buildPlugin(name) {
       output[file] = [bytes, { mtime }]
     }
   }
-  const compiled = manifest.format === 'source' ? { ...manifest, format: 'compiled', entry: manifest.entry.replace(/\.(m?)ts$/, '.$1js') } : manifest
+  const compiled = manifest.format === 'source' ? { ...manifest, format: 'compiled', ...(manifest.entry ? { entry: manifest.entry.replace(/\.(m?)ts$/, '.$1js') } : {}) } : manifest
   const manifestBytes = manifest.format === 'source' ? Buffer.from(`${JSON.stringify(compiled, null, 2)}\n`) : await readFile(join(directory, 'extension.json'))
   output['extension.json'] = [manifestBytes, { mtime }]
-  assert(output[compiled.entry], `${name}: compiled entry is missing`)
+  assert(!compiled.entry || output[compiled.entry], `${name}: compiled entry is missing`)
   const bytes = zipSync(output, { level: 6 })
   const file = `${name}-${manifest.version}.lexora-extension`
   await mkdir(join(root, 'dist'), { recursive: true })

@@ -27,13 +27,14 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 
 ## 兼容范围
 
-清单中的 `engines.lexora` 按 XTLaw 的版本号填写，例如 `>=0.1.1 <1.0.0`。字段名沿用插件协议原有的命名。
+清单中的 `engines.lexora` 按 XTLaw 的版本号填写，例如 `>=0.1.1 <1.0.0`。字段名沿用插件协议原有的命名。下限取该插件所需功能首次随 XTLaw 发布的版本：标题自动生成 1.3.0 需要 0.2.0（任务创建、回复开始等钩子），多 Shell 需要 0.3.1（多 Shell 配置）。
 
 ## 插件
 
 | 插件 | 说明 | 来源 |
 | --- | --- | --- |
-| `auto-title` 标题自动生成 | 根据首条有效输入在后台生成任务标题，保留手动命名，可选随任务目标变化更新。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `auto-title` 1.2.2 |
+| `auto-title` 标题自动生成 | 根据首条有效输入在后台生成任务标题，保留手动命名，可选随任务目标变化更新。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `auto-title` 1.3.0 |
+| `multi-shell` 多 Shell · 命令执行 | 检测本机的 Bash、Git Bash、Zsh、sh、PowerShell 7+、Windows PowerShell 5.1 和 cmd，在设置中启用候选、指定路径、调整优先级。需要 XTLaw 0.3.1 或更新版本。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `multi-shell` 1.0.0 |
 | `office` Office DOCX | 预览、编辑、保存 Word 文档，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office)，保留原插件 ID 与许可证 |
 | `office-pptx` Office PPTX | 预览、编辑、保存 PowerPoint 演示文稿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pptx)，保留原插件 ID 与许可证 |
 | `office-xlsx` Office XLSX | 预览、编辑、保存 Excel 工作簿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-xlsx)，保留原插件 ID 与许可证 |
@@ -42,4 +43,4 @@ Office 插件不再随后续 XTLaw 安装包预装，由用户在插件市场按
 
 ## 许可证
 
-市场构建脚本和标题插件使用 [MIT 许可证](LICENSE)。Office 插件及其第三方依赖、字体等遵循各自目录中的 `LICENSE`、其他许可证文件及 `provenance.json`，不因迁入本仓库而改为 MIT；发布包完整保留这些文件。
+市场构建脚本、标题插件和多 Shell 插件使用 [MIT 许可证](LICENSE)。Office 插件及其第三方依赖、字体等遵循各自目录中的 `LICENSE`、其他许可证文件及 `provenance.json`，不因迁入本仓库而改为 MIT；发布包完整保留这些文件。
