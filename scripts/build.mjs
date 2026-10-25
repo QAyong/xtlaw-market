@@ -10,7 +10,7 @@ import { zipSync } from 'fflate'
 import ts from 'typescript'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
-const repository = 'https://github.com/QAyong/xtlaw-plugins'
+const repository = 'https://github.com/QAyong/xtlaw-market'
 const releaseBase = `${repository}/releases/download`
 // Fixed timestamp keeps package bytes, and therefore catalog hashes, reproducible.
 const mtime = new Date('2026-01-01T00:00:00Z')
