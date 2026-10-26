@@ -5,7 +5,7 @@
   "name": "北大法宝",
   "author": "XTLaw",
   "description": "中国大陆法规、案例及引用核验的专业数据库连接，随 XTLaw 内置，需要在设置中填写 Token。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "apiVersion": 4,
   "engines": {
     "lexora": ">=0.3.2 <1.0.0"
