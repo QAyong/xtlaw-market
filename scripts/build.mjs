@@ -1,5 +1,5 @@
 // Builds every plugin under plugins/ into a compiled .lexora-extension package
-// and regenerates catalog/v1/index.json for the XTLaw plugin market.
+// and regenerates catalog/v1/index.json and catalog/v1/packs.json for the XTLaw plugin market.
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
@@ -40,7 +40,7 @@ async function buildPlugin(name) {
   const output = {}
   for (const file of await listFiles(directory)) {
     // Type declarations are development-only; sources are replaced by compiled modules.
-    if (file.endsWith('.d.ts') || file === 'extension.json')
+    if (file.endsWith('.d.ts') || file === 'extension.json' || file === 'market.json')
       continue
     const bytes = await readFile(join(directory, file))
     if (manifest.format === 'source' && /\.m?ts$/.test(file)) {
@@ -63,7 +63,11 @@ async function buildPlugin(name) {
   await writeFile(join(root, 'dist', file), bytes)
   const icon = manifest.icon ? output[manifest.icon]?.[0] : null
   assert(!manifest.icon || (icon && manifest.icon.endsWith('.svg') && icon.length <= 65536), `${name}: invalid icon`)
+  // market.json is catalog metadata (kind, source), not package content, so it stays out of the archive.
+  const market = await readFile(join(directory, 'market.json'), 'utf8').then(JSON.parse, () => ({}))
   return {
+    ...(market.kind ? { kind: market.kind } : {}),
+    ...(market.source ? { source: market.source } : {}),
     manifest: compiled,
     ...(icon ? { iconUrl: `data:image/svg+xml;base64,${icon.toString('base64')}` } : {}),
     repository,
@@ -77,5 +81,18 @@ for (const name of names)
   plugins.push(await buildPlugin(name))
 await mkdir(join(root, 'catalog', 'v1'), { recursive: true })
 await writeFile(join(root, 'catalog', 'v1', 'index.json'), `${JSON.stringify({ schemaVersion: 1, plugins }, null, 2)}\n`)
+// A pack is a list of references to the plugins above, not a package: nothing is built or released for it.
+// It goes in its own file because the client's index.json schema is strict and would reject a new key.
+const packs = []
+for (const file of (await readdir(join(root, 'packs')).catch(() => [])).filter(file => file.endsWith('.json')).sort()) {
+  const pack = JSON.parse(await readFile(join(root, 'packs', file), 'utf8'))
+  assert.equal(file, `${pack.id}.json`, `${file}: the file name must be the pack id`)
+  assert(Array.isArray(pack.includes) && pack.includes.length, `${file}: a pack needs members`)
+  for (const id of pack.includes)
+    assert(plugins.some(plugin => plugin.manifest.id === id), `${file}: ${id} is not a plugin in this market`)
+  packs.push(pack)
+}
+await writeFile(join(root, 'catalog', 'v1', 'packs.json'), `${JSON.stringify({ schemaVersion: 1, packs }, null, 2)}
+`)
 for (const plugin of plugins)
   process.stdout.write(`${plugin.manifest.id}@${plugin.manifest.version} ${plugin.artifact.size} bytes sha256=${plugin.artifact.sha256}\n`)

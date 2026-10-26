@@ -4,8 +4,10 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 
 ## 目录结构
 
-- `plugins/<name>/`：插件源码。清单 `extension.json` 中的 `id` 是插件的稳定身份，升级时保持不变。
+- `plugins/<name>/`：插件源码。目录里的 `market.json`（可选，`kind`、`source`）只登记目录元数据，不进安装包。清单 `extension.json` 中的 `id` 是插件的稳定身份，升级时保持不变。
 - `catalog/v1/index.json`：市场目录，由构建脚本生成，不要手工编辑。
+- `packs/<id>.json`：能力包。能力包只是对上面插件的引用清单（`includes` 填插件的清单 `id`），没有包体，不需要发布 Release；文件名必须等于包的 `id`。
+- `catalog/v1/packs.json`：能力包目录，由构建脚本从 `packs/` 生成，不要手工编辑。单独成文件，是因为客户端的 `index.json` 校验很严，新增字段会让已发布的客户端整份拒绝。
 - `scripts/build.mjs`：把 TypeScript 源码插件编译、已编译插件直接打包为 `.lexora-extension`，输出到 `dist/`，并重新生成市场目录。
 
 ## 发布流程
@@ -19,7 +21,7 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
    ```
 
 3. 创建名为 `<name>-v<version>` 的 GitHub Release，上传 `dist/<name>-<version>.lexora-extension`。
-4. 提交并推送 `catalog/v1/index.json`。客户端刷新插件目录后即可看到新版本。
+4. 提交并推送 `catalog/v1/index.json`（改了能力包时还有 `catalog/v1/packs.json`）。客户端刷新插件目录后即可看到新版本。
 
 目录里的下载地址指向第 3 步的 Release，所以必须先上传安装包，再推送目录。
 
@@ -38,8 +40,18 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 | `office` Office DOCX | 预览、编辑、保存 Word 文档，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office)，保留原插件 ID 与许可证 |
 | `office-pptx` Office PPTX | 预览、编辑、保存 PowerPoint 演示文稿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pptx)，保留原插件 ID 与许可证 |
 | `office-xlsx` Office XLSX | 预览、编辑、保存 Excel 工作簿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-xlsx)，保留原插件 ID 与许可证 |
+| `legal-research` 法律检索（技能） | 中国大陆法律检索技能。XTLaw 目前内置它，这一条是登记；迁出安装包后由市场分发。 | XTLaw 自有 |
+| `pkulaw` 北大法宝（MCP） | 内置 MCP 的登记，不携带内容，不能重复安装。 | XTLaw 自有 |
+| `legal-research-agent` 法律检索员（子代理） | 只读 NPC 子代理，安装后加入“晓晓”的可委派列表。需要 XTLaw 0.3.2 或更新版本。 | XTLaw 自有 |
 
 Office 插件不再随后续 XTLaw 安装包预装，由用户在插件市场按需安装。已有安装与配置不删除。安装时仍须审核所申请的文件写回等权限；XLSX 的 WebAssembly 按客户端的非内置插件限额验证。
+
+## 能力包
+
+| 能力包 | 包含 |
+| --- | --- |
+| `office` Office 文档 | `office`、`office-pptx`、`office-xlsx` |
+| `legal-research` 法律检索 | `legal-research`、`pkulaw`、`legal-research-agent` |
 
 ## 许可证
 
