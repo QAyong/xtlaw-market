@@ -4,6 +4,8 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 
 ## 目录结构
 
+`legal-research`、`legal-research-agent`、`pkulaw` 和 Office 三个插件的源头在 XTLaw 仓库的 `plugins/`，由 `pnpm market:sync` 同步到这里，不要在这里直接改；`auto-title`、`multi-shell`、`packs/` 和目录只在本仓库维护。
+
 - `plugins/<name>/`：插件源码。目录里的 `market.json`（可选，`kind`、`source`）只登记目录元数据，不进安装包。清单 `extension.json` 中的 `id` 是插件的稳定身份，升级时保持不变。
 - `catalog/v1/index.json`：市场目录，由构建脚本生成，不要手工编辑。
 - `packs/<id>.json`：能力包。能力包只是对上面插件的引用清单（`includes` 填插件的清单 `id`），没有包体，不需要发布 Release；文件名必须等于包的 `id`。

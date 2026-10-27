@@ -542,7 +542,7 @@
         "name": "Office DOCX",
         "author": "XTLaw官方",
         "description": "用文件管理器里的 DOCX 直接预览、编辑并保存。",
-        "version": "0.1.8",
+        "version": "0.1.9",
         "icon": "icon.svg",
         "categories": [
           "办公"
@@ -591,9 +591,9 @@
       "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiM0YjZjOWMiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTAgMTBoNk0xMCAxM2g2TTEwIDE2aDQiIHN0cm9rZT0iIzRiNmM5YyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjIiIHk9IjciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjEuNSIgZmlsbD0iIzRiNmM5YyIvPgogIDxwYXRoIGQ9Im00IDEwIDEgNSAyLTQgMiA0IDEtNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-v0.1.8/office-0.1.8.lexora-extension",
-        "sha256": "e710c02da9ebc918bd3373d76942c1e8c273774703880fae4a5efda41ecaf94a",
-        "size": 13007651
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-v0.1.9/office-0.1.9.lexora-extension",
+        "sha256": "1cf7d8285fc4e16388263bf2faf019868ed426e1183e0d91c3382092ce586cf0",
+        "size": 13007745
       }
     },
     {
