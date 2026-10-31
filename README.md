@@ -40,6 +40,7 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 | `auto-title` 标题自动生成 | 根据首条有效输入在后台生成任务标题，保留手动命名，可选随任务目标变化更新。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `auto-title` 1.3.0 |
 | `multi-shell` 多 Shell · 命令执行 | 检测本机的 Bash、Git Bash、Zsh、sh、PowerShell 7+、Windows PowerShell 5.1 和 cmd，在设置中启用候选、指定路径、调整优先级。需要 XTLaw 0.3.1 或更新版本。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `multi-shell` 1.0.0 |
 | `office` Office DOCX | 预览、编辑、保存 Word 文档，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office)，保留原插件 ID 与许可证 |
+| `office-pdf` Office PDF | 打开、批注、填写表单并保存 PDF，引用到聊天。需要 XTLaw 0.4.8 或更新版本。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pdf)，保留原插件 ID 与许可证 |
 | `office-pptx` Office PPTX | 预览、编辑、保存 PowerPoint 演示文稿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pptx)，保留原插件 ID 与许可证 |
 | `office-xlsx` Office XLSX | 预览、编辑、保存 Excel 工作簿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-xlsx)，保留原插件 ID 与许可证 |
 | `legal-research` 法律检索（技能） | 中国大陆法律检索技能。由市场分发，需要在市场安装。 | XTLaw 自有 |
@@ -52,7 +53,7 @@ Office 插件不再随后续 XTLaw 安装包预装，由用户在插件市场按
 
 | 能力包 | 包含 |
 | --- | --- |
-| `office` Office 文档 | `office`、`office-pptx`、`office-xlsx` |
+| `office` Office 文档 | `office`、`office-pdf`、`office-pptx`、`office-xlsx` |
 | `legal-research` 法律检索 | `legal-research`、`pkulaw`、`legal-research-agent` |
 
 ## 许可证

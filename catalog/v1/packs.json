@@ -17,13 +17,14 @@
     {
       "id": "office",
       "name": "Office 文档",
-      "description": "在 XTLaw 里预览、编辑和保存 Word、PowerPoint 与 Excel 文件，并把选区引用到聊天。",
+      "description": "在 XTLaw 里预览、编辑和保存 Word、PowerPoint、Excel 与 PDF 文件，并把选区引用到聊天。",
       "tags": [
         "文档",
         "办公"
       ],
       "includes": [
         "pd2ec0b9018e6402d8ada6873f7fa8721.office",
+        "pd2ec0b9018e6402d8ada6873f7fa8721.office-pdf",
         "pd2ec0b9018e6402d8ada6873f7fa8721.office-pptx",
         "pd2ec0b9018e6402d8ada6873f7fa8721.office-xlsx"
       ]
