@@ -542,7 +542,7 @@
         "name": "Office DOCX",
         "author": "XTLaw官方",
         "description": "用文件管理器里的 DOCX 直接预览、编辑并保存。",
-        "version": "0.1.9",
+        "version": "0.1.14",
         "icon": "icon.svg",
         "categories": [
           "办公"
@@ -588,12 +588,75 @@
           ]
         }
       },
-      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiM0YjZjOWMiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTAgMTBoNk0xMCAxM2g2TTEwIDE2aDQiIHN0cm9rZT0iIzRiNmM5YyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjIiIHk9IjciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjEuNSIgZmlsbD0iIzRiNmM5YyIvPgogIDxwYXRoIGQ9Im00IDEwIDEgNSAyLTQgMiA0IDEtNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTguNzUgMTEuNWEuNzUuNzUgMCAwIDAgMCAxLjVoNi41YS43NS43NSAwIDAgMCAwLTEuNWgtNi41em0wIDIuNzVhLjc1Ljc1IDAgMCAwIDAgMS41aDYuNWEuNzUuNzUgMCAwIDAgMC0xLjVoLTYuNXptMCAyLjc1YS43NS43NSAwIDAgMCAwIDEuNWg2LjVhLjc1Ljc1IDAgMCAwIDAtMS41aC02LjV6bTQuODM1LTE0LjQxNGw1LjgyOSA1LjgyOEEyIDIgMCAwIDEgMjAgOS44MjhWMjBhMiAyIDAgMCAxLTIgMkg2YTIgMiAwIDAgMS0yLTJWNGEyIDIgMCAwIDEgMi0yaDYuMTcyYy4wMjggMCAuMDU1LjAwNC4wODIuMDA3Yy4wMi4wMDMuMDQuMDA2LjA1OS4wMDdjLjIxNS4wMTUuNDI3LjA1Ni42MjQuMTM4Yy4wNTcuMDI0LjExMi4wNTYuMTY2LjA4N2wuMDUuMDI5bC4wNDcuMDI0YS42NTIuNjUyIDAgMCAxIC4wODEuMDQ0Yy4wNzguMDUzLjE0OC4xMTYuMjE5LjE4YS42My42MyAwIDAgMCAuMDM2LjAzYS40OTEuNDkxIDAgMCAxIC4wNDkuMDR6TTE4IDIwLjVhLjUuNSAwIDAgMCAuNS0uNVYxMEgxNGEyIDIgMCAwIDEtMi0yVjMuNUg2YS41LjUgMCAwIDAtLjUuNXYxNmEuNS41IDAgMCAwIC41LjVoMTJ6bS0uNjIyLTEyTDEzLjUgNC42MjFWOGEuNS41IDAgMCAwIC41LjVoMy4zNzh6IiBmaWxsPSIjMzM3RUE5Ii8+PC9zdmc+Cg==",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-v0.1.9/office-0.1.9.lexora-extension",
-        "sha256": "1cf7d8285fc4e16388263bf2faf019868ed426e1183e0d91c3382092ce586cf0",
-        "size": 13007745
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-v0.1.14/office-0.1.14.lexora-extension",
+        "sha256": "6251675c89a111e560fb693d46c7852c5ee3d6c67f054a208c74eb2ada00f6c7",
+        "size": 13014342
+      }
+    },
+    {
+      "manifest": {
+        "schemaVersion": 1,
+        "format": "compiled",
+        "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pdf",
+        "name": "Office PDF",
+        "author": "XTLaw官方",
+        "description": "用 PDF 编辑器打开、批注、填写表单并保存 PDF，可引用到聊天。",
+        "version": "0.1.7",
+        "icon": "icon.svg",
+        "categories": [
+          "办公"
+        ],
+        "tags": [
+          "PDF",
+          "批注",
+          "表单"
+        ],
+        "apiVersion": 4,
+        "engines": {
+          "lexora": ">=0.4.8 <1.0.0"
+        },
+        "entry": "extension.js",
+        "permissions": {
+          "selectedResource": "read",
+          "selectedResourceWrite": true,
+          "composerReference": true,
+          "localResources": true,
+          "resourceExport": true,
+          "webAssembly": true
+        },
+        "contributes": {
+          "views": [
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pdf.viewer",
+              "title": "Office PDF",
+              "entry": "view.js",
+              "resource": "none",
+              "location": "context"
+            },
+            {
+              "id": "pd2ec0b9018e6402d8ada6873f7fa8721.office-pdf.document",
+              "title": "Office PDF",
+              "entry": "view.js",
+              "resource": "selected-file",
+              "accepts": {
+                "extensions": [
+                  "pdf"
+                ]
+              },
+              "location": "context"
+            }
+          ]
+        }
+      },
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTcuNTAzIDEzLjAwMmEuNS41IDAgMCAwLS41LjV2M2EuNS41IDAgMCAwIDEgMHYtLjVIOC41YTEuNSAxLjUgMCAwIDAgMC0zaC0uOTk3em0uOTk3IDJoLS40OTd2LTFIOC41YS41LjUgMCAxIDEgMCAxem02LjQ5OC0xLjVhLjUuNSAwIDAgMSAuNS0uNWgxLjUwNWEuNS41IDAgMSAxIDAgMWgtMS4wMDZsLS4wMDEgMS4wMDJoMS4wMDdhLjUuNSAwIDAgMSAwIDFoLTEuMDA3bC4wMDIuNDk3YS41LjUgMCAwIDEtMSAuMDAybC0uMDAzLS45OTh2LS4wMDJsLjAwMy0yLjAwMnptLTMuNDk4LS41YS41LjUgMCAwIDAtLjUuNXYzYS41LjUgMCAwIDAgLjUuNWguNDk4YTIgMiAwIDAgMCAwLTRIMTEuNXptLjUgM3YtMmExIDEgMCAwIDEgMCAyek0yMCAyMHYtMS4xNjRjLjU5MS0uMjgxIDEtLjg4NCAxLTEuNTgyVjEyLjc1YzAtLjY5OC0uNDA5LTEuMy0xLTEuNTgydi0xLjM0YTIgMiAwIDAgMC0uNTg2LTEuNDE0bC01LjgyOS01LjgyOGEuNDkxLjQ5MSAwIDAgMC0uMDQ5LS4wNGEuNjMuNjMgMCAwIDEtLjAzNi0uMDNhMi4wNzIgMi4wNzIgMCAwIDAtLjIxOS0uMThhLjY1Mi42NTIgMCAwIDAtLjA4LS4wNDRsLS4wNDgtLjAyNGwtLjA1LS4wMjljLS4wNTQtLjAzMS0uMTA5LS4wNjMtLjE2Ni0uMDg3YTEuOTc3IDEuOTc3IDAgMCAwLS42MjQtLjEzOGMtLjAyLS4wMDEtLjA0LS4wMDQtLjA1OS0uMDA3QS42MDUuNjA1IDAgMCAwIDEyLjE3MiAySDZhMiAyIDAgMCAwLTIgMnY3LjE2OGMtLjU5MS4yODEtMSAuODg0LTEgMS41ODJ2NC41MDRjMCAuNjk4LjQwOSAxLjMgMSAxLjU4MlYyMGEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJ6bS0yIC41SDZhLjUuNSAwIDAgMS0uNS0uNXYtLjk5NmgxM1YyMGEuNS41IDAgMCAxLS41LjV6bS41LTEwLjV2MWgtMTNWNGEuNS41IDAgMCAxIC41LS41aDZWOGEyIDIgMCAwIDAgMiAyaDQuNXptLTEuMTIyLTEuNUgxNGEuNS41IDAgMCAxLS41LS41VjQuNjIxTDE3LjM3OCA4LjV6bS0xMi42MjggNGgxNC41YS4yNS4yNSAwIDAgMSAuMjUuMjV2NC41MDRhLjI1LjI1IDAgMCAxLS4yNS4yNUg0Ljc1YS4yNS4yNSAwIDAgMS0uMjUtLjI1VjEyLjc1YS4yNS4yNSAwIDAgMSAuMjUtLjI1eiIgZmlsbD0iI0Q0NEM0NyIvPjwvc3ZnPgo=",
+      "repository": "https://github.com/QAyong/xtlaw-market",
+      "artifact": {
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-pdf-v0.1.7/office-pdf-0.1.7.lexora-extension",
+        "sha256": "b69f826a1043dae1e5879bfd21f655558180603e477684b7795b902ed82716dc",
+        "size": 11255236
       }
     },
     {
@@ -604,7 +667,7 @@
         "name": "Office PPTX",
         "author": "XTLaw官方",
         "description": "用 Slides 编辑器打开、编辑并保存 PPTX，可引用到聊天。",
-        "version": "0.4.11",
+        "version": "0.4.15",
         "icon": "icon.svg",
         "categories": [
           "办公"
@@ -649,12 +712,12 @@
           ]
         }
       },
-      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiNjNDNlMWMiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTAuNSAxMi41djRNMTMuNSAxMC41djZNMTYuNSAxNHYyLjUiIHN0cm9rZT0iI2M0M2UxYyIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxyZWN0IHg9IjIiIHk9IjciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMSIgcng9IjEuNSIgZmlsbD0iI2M0M2UxYyIvPgogIDxwYXRoIGQ9Ik01IDE2VjkuNWgyLjNhMS45IDEuOSAwIDAgMSAwIDMuOEg1IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTYuNzUgOGEuNzUuNzUgMCAwIDAgMCAxLjVoNC41YS43NS43NSAwIDAgMCAwLTEuNWgtNC41ek02IDExLjc1YS43NS43NSAwIDAgMSAuNzUtLjc1aDguNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTguNWEuNzUuNzUgMCAwIDEtLjc1LS43NXpNNi43NSAxNGEuNzUuNzUgMCAwIDAgMCAxLjVoNi41YS43NS43NSAwIDAgMCAwLTEuNWgtNi41em0tMi0xMEEyLjc1IDIuNzUgMCAwIDAgMiA2Ljc1djEwLjVBMi43NSAyLjc1IDAgMCAwIDQuNzUgMjBoMTQuNUEyLjc1IDIuNzUgMCAwIDAgMjIgMTcuMjVWNi43NUEyLjc1IDIuNzUgMCAwIDAgMTkuMjUgNEg0Ljc1ek0zLjUgNi43NWMwLS42OS41Ni0xLjI1IDEuMjUtMS4yNWgxNC41Yy42OSAwIDEuMjUuNTYgMS4yNSAxLjI1djEwLjVjMCAuNjktLjU2IDEuMjUtMS4yNSAxLjI1SDQuNzVjLS42OSAwLTEuMjUtLjU2LTEuMjUtMS4yNVY2Ljc1eiIgZmlsbD0iI0Q5NzMwRCIvPjwvc3ZnPgo=",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-pptx-v0.4.11/office-pptx-0.4.11.lexora-extension",
-        "sha256": "798f78aae0311fb069f13d188f3e1c3b97a5041a05fa0582e57664274bf39700",
-        "size": 6025157
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-pptx-v0.4.15/office-pptx-0.4.15.lexora-extension",
+        "sha256": "150655b1c4fa38512664e881fc81cde78eded69404e5f52b496e34551ee6e581",
+        "size": 6031428
       }
     },
     {
@@ -665,7 +728,7 @@
         "name": "Office XLSX",
         "author": "XTLaw官方",
         "description": "用 Sheets 编辑器打开、编辑并保存 XLSX，可引用到聊天。",
-        "version": "0.3.13",
+        "version": "0.3.16",
         "icon": "icon.svg",
         "categories": [
           "办公"
@@ -711,12 +774,12 @@
           ]
         }
       },
-      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0iTTcgMi41aDhsNCA0djE0SDd6IiBzdHJva2U9IiMxZDdhNDYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTE1IDIuNXY0aDRNMTEgMTFoOE0xMSAxNGg4TTExIDE3aDhNMTQgOC41djExIiBzdHJva2U9IiMxZDdhNDYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8cmVjdCB4PSIyIiB5PSI3IiB3aWR0aD0iMTAiIGhlaWdodD0iMTEiIHJ4PSIxLjUiIGZpbGw9IiMxZDdhNDYiLz4KICA8cGF0aCBkPSJtNC42IDEwLjIgNC44IDUuNm0wLTUuNi00LjggNS42IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=",
+      "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTguNzUgMTEuNWg2LjVjLjk2NiAwIDEuNzUuNzg0IDEuNzUgMS43NXY0QTEuNzUgMS43NSAwIDAgMSAxNS4yNSAxOWgtNi41QTEuNzUgMS43NSAwIDAgMSA3IDE3LjI1di00YzAtLjk2Ni43ODQtMS43NSAxLjc1LTEuNzV6bS0uMjUgMS43NXYxLjI1SDEwVjEzSDguNzVhLjI1LjI1IDAgMCAwLS4yNS4yNXptMCAyLjc1djEuMjVjMCAuMTM4LjExMi4yNS4yNS4yNUgxMFYxNkg4LjV6bTMgMHYxLjVoMy43NWEuMjUuMjUgMCAwIDAgLjI1LS4yNVYxNmgtNHptNC0xLjV2LTEuMjVhLjI1LjI1IDAgMCAwLS4yNS0uMjVIMTEuNXYxLjVoNHpNMTMuNTg1IDIuNTg2YS40OTEuNDkxIDAgMCAwLS4wNDktLjA0YS42My42MyAwIDAgMS0uMDM2LS4wM2EyLjA3MiAyLjA3MiAwIDAgMC0uMjE5LS4xOGEuNjUyLjY1MiAwIDAgMC0uMDgtLjA0NGwtLjA0OC0uMDI0bC0uMDUtLjAyOWMtLjA1NC0uMDMxLS4xMDktLjA2My0uMTY2LS4wODdhMS45NzcgMS45NzcgMCAwIDAtLjYyNC0uMTM4Yy0uMDItLjAwMS0uMDQtLjAwNC0uMDU5LS4wMDdBLjYwNS42MDUgMCAwIDAgMTIuMTcyIDJINmEyIDIgMCAwIDAtMiAydjE2YTIgMiAwIDAgMCAyIDJoMTJhMiAyIDAgMCAwIDItMlY5LjgyOGEyIDIgMCAwIDAtLjU4Ni0xLjQxNGwtNS44MjktNS44Mjh6TTE4IDIwLjVINmEuNS41IDAgMCAxLS41LS41VjRhLjUuNSAwIDAgMSAuNS0uNWg2VjhhMiAyIDAgMCAwIDIgMmg0LjV2MTBhLjUuNSAwIDAgMS0uNS41em0tLjYyMi0xMkgxNGEuNS41IDAgMCAxLS41LS41VjQuNjIxTDE3LjM3OCA4LjV6IiBmaWxsPSIjNDQ4MzYxIi8+PC9zdmc+Cg==",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-xlsx-v0.3.13/office-xlsx-0.3.13.lexora-extension",
-        "sha256": "eddd3fcd13a022a258f7ebf7f840a4adff4e1d1601ff64d08e19d12c1f708a2d",
-        "size": 7488332
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-xlsx-v0.3.16/office-xlsx-0.3.16.lexora-extension",
+        "sha256": "19150809760b51b4bc77573964d627ecafd49341da2fb74aa4c879cfa553a9cc",
+        "size": 7492895
       }
     },
     {
