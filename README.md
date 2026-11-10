@@ -43,6 +43,7 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 | `office-pdf` Office PDF | 打开、批注、填写表单并保存 PDF，引用到聊天。需要 XTLaw 0.4.8 或更新版本。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pdf)，保留原插件 ID 与许可证 |
 | `office-pptx` Office PPTX | 预览、编辑、保存 PowerPoint 演示文稿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pptx)，保留原插件 ID 与许可证 |
 | `office-xlsx` Office XLSX | 预览、编辑、保存 Excel 工作簿，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-xlsx)，保留原插件 ID 与许可证 |
+| `transcript-player` XTLaw播放器 | 播放音视频并阅读文字稿，支持字幕、搜索与引用。 | [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/transcript-player) |
 | `legal-research` 法律检索（技能） | 中国大陆法律检索技能。由市场分发，需要在市场安装。 | XTLaw 自有 |
 | `pkulaw` 北大法宝（MCP） | 内置 MCP 的登记，不携带内容，不能重复安装。 | XTLaw 自有 |
 | `legal-research-agent` 法律检索员（子代理） | 只读 NPC 子代理，安装后加入“晓晓”的可委派列表。需要 XTLaw 0.3.2 或更新版本。 | XTLaw 自有 |
