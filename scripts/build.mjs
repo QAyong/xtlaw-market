@@ -8,6 +8,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { zipSync } from 'fflate'
 import ts from 'typescript'
+import { assertCompiledEntries, compiledManifest, sourceImportTransformer, sourceOutputPath } from './source-compiler.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const repository = 'https://github.com/QAyong/xtlaw-market'
@@ -38,25 +39,27 @@ async function buildPlugin(name) {
   // Declarative plugins (for example multi-shell) have no entry; otherwise it must be TypeScript.
   assert(manifest.format !== 'source' || !manifest.entry || /\.m?ts$/.test(manifest.entry), `${name}: expected a TypeScript source entry`)
   const output = {}
-  for (const file of await listFiles(directory)) {
+  const files = await listFiles(directory)
+  const packageFiles = new Set(files)
+  for (const file of files) {
     // Type declarations are development-only; sources are replaced by compiled modules.
     if (file.endsWith('.d.ts') || file === 'extension.json' || file === 'market.json')
       continue
     const bytes = await readFile(join(directory, file))
     if (manifest.format === 'source' && /\.m?ts$/.test(file)) {
-      const result = ts.transpileModule(bytes.toString('utf8'), { fileName: file, reportDiagnostics: true, compilerOptions })
+      const result = ts.transpileModule(bytes.toString('utf8'), { fileName: file, reportDiagnostics: true, compilerOptions, transformers: { after: [sourceImportTransformer(file, packageFiles)] } })
       const errors = (result.diagnostics ?? []).filter(item => item.category === ts.DiagnosticCategory.Error)
       assert(errors.length === 0, `${name}/${file}: ${errors.map(item => ts.flattenDiagnosticMessageText(item.messageText, ' ')).join('; ')}`)
-      output[file.replace(/\.(m?)ts$/, '.$1js')] = [Buffer.from(result.outputText), { mtime }]
+      output[sourceOutputPath(file)] = [Buffer.from(result.outputText), { mtime }]
     }
     else {
       output[file] = [bytes, { mtime }]
     }
   }
-  const compiled = manifest.format === 'source' ? { ...manifest, format: 'compiled', ...(manifest.entry ? { entry: manifest.entry.replace(/\.(m?)ts$/, '.$1js') } : {}) } : manifest
+  const compiled = compiledManifest(manifest)
   const manifestBytes = manifest.format === 'source' ? Buffer.from(`${JSON.stringify(compiled, null, 2)}\n`) : await readFile(join(directory, 'extension.json'))
   output['extension.json'] = [manifestBytes, { mtime }]
-  assert(!compiled.entry || output[compiled.entry], `${name}: compiled entry is missing`)
+  assertCompiledEntries(compiled, output, name)
   const bytes = zipSync(output, { level: 6 })
   const file = `${name}-${manifest.version}.lexora-extension`
   await mkdir(join(root, 'dist'), { recursive: true })
