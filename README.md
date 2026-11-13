@@ -4,7 +4,7 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 
 ## 目录结构
 
-`legal-research`、`legal-research-agent`、`pkulaw` 和 Office 三个插件的源头在 XTLaw 仓库的 `plugins/`，由 `pnpm market:sync` 同步到这里，不要在这里直接改；`auto-title`、`multi-shell`、`packs/` 和目录只在本仓库维护。
+`legal-research`、`legal-research-agent`、`pkulaw`、`legacy-task-cleanup` 和 Office 系列插件的源头在 XTLaw 仓库的 `plugins/`，由 `pnpm market:sync` 同步到这里，不要在这里直接改；只同步单个插件时可用 `pnpm market:sync --plugin=<name>`。`auto-title`、`multi-shell`、`packs/` 和目录只在本仓库维护。
 
 - `plugins/<name>/`：插件源码。目录里的 `market.json`（可选，`kind`、`source`）只登记目录元数据，不进安装包。清单 `extension.json` 中的 `id` 是插件的稳定身份，升级时保持不变。
 - `catalog/v1/index.json`：市场目录，由构建脚本生成，不要手工编辑。
@@ -38,6 +38,7 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
 | 插件 | 说明 | 来源 |
 | --- | --- | --- |
 | `auto-title` 标题自动生成 | 根据首条有效输入在后台生成任务标题，保留手动命名，可选随任务目标变化更新。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `auto-title` 1.3.0 |
+| `legacy-task-cleanup` 任务残留清理 | 插件承载确认、进度和结果；只清理宿主冻结的旧版已移除任务残留。需要具备对应宿主接口的 XTLaw 0.5.6 或更新版本，0.5.5 不兼容。 | 移植自 [useLexora/plugins 的固定提交](https://github.com/useLexora/plugins/commit/d430627f162fe087dc4fb2bb1743d7b938cfabfa)，适配版 1.0.1；保留 Lexora 作者、插件 ID 和 MIT 许可证 |
 | `multi-shell` 多 Shell · 命令执行 | 检测本机的 Bash、Git Bash、Zsh、sh、PowerShell 7+、Windows PowerShell 5.1 和 cmd，在设置中启用候选、指定路径、调整优先级。需要 XTLaw 0.3.1 或更新版本。 | 移植自 [useLexora/plugins](https://github.com/useLexora/plugins) 的 `multi-shell` 1.0.0 |
 | `office` Office DOCX | 预览、编辑、保存 Word 文档，引用到聊天。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office)，保留原插件 ID 与许可证 |
 | `office-pdf` Office PDF | 打开、批注、填写表单并保存 PDF，引用到聊天。需要 XTLaw 0.4.8 或更新版本。 | 来自 [XTLaw](https://github.com/QAyong/XTLaw/tree/master/plugins/office-pdf)，保留原插件 ID 与许可证 |
