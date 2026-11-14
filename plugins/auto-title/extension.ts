@@ -31,14 +31,17 @@ export async function activate(context: ExtensionContext) {
       }
       return { status: 'skipped', message: '已记录新任务命名资格' }
     }
-    if (invocation.cause.type === 'task:reply:started' && (task.titleSource !== 'fallback' || !pending.has(task.id)))
-      return { status: 'skipped', message: '已保留现有任务标题' }
-    if (invocation.cause.type === 'task:turn:completed' && (task.titleSource !== 'generated' || configuration.updateOnGoalChange !== true))
-      return { status: 'skipped', message: '已保留现有标题' }
+    if (invocation.cause.type === 'task:turn:completed') {
+      const isFirstNaming = task.titleSource === 'fallback' && pending.has(task.id)
+      const canUpdateForGoalChange = task.titleSource === 'generated' && configuration.updateOnGoalChange === true
+      if (!isFirstNaming && !canUpdateForGoalChange)
+        return { status: 'skipped', message: '已保留现有标题' }
+    }
     const messages = await invocation.task.messages()
-    if (!messages.some(message => message.role === 'user'))
+    const userMessageCount = messages.filter(message => message.role === 'user').length
+    if (userMessageCount === 0)
       return { status: 'skipped', message: '暂无可用于命名的任务内容' }
-    if (invocation.cause.type === 'task:turn:completed' && messages.filter(message => message.role === 'user').length < 2)
+    if (invocation.cause.type === 'task:turn:completed' && task.titleSource === 'generated' && userMessageCount < 2)
       return { status: 'skipped', message: '暂无新的任务目标' }
     const model = configuration.model && typeof configuration.model === 'object' ? configuration.model : null
     const result = await invocation.models.generateText({

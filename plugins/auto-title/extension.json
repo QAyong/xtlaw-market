@@ -5,7 +5,7 @@
   "name": "标题自动生成",
   "author": "XTLaw",
   "description": "根据首条有效输入自动生成任务标题，保留手动命名，也可随任务目标变化更新。",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "apiVersion": 3,
   "engines": {
     "lexora": ">=0.2.0 <1.0.0"
@@ -42,7 +42,7 @@
           "group": "lexora.auto-title.naming",
           "type": "boolean",
           "title": "启用",
-          "description": "仅对启用后创建的新任务，在主回复开始后后台命名；内容不足或失败时可在下次输入时重试。",
+          "description": "仅对启用后创建的新任务，在本轮回答结束后命名；内容不足或请求失败时可在后续回答结束后重试。",
           "default": true,
           "order": 0
         },
@@ -88,7 +88,6 @@
           "title": "重新生成标题",
           "triggers": [
             "task:created",
-            "task:reply:started",
             "task:turn:completed"
           ],
           "execution": "background"
