@@ -22,6 +22,14 @@ XTLaw 的插件源码、市场目录和安装包发布入口。XTLaw 客户端�
    pnpm build
    ```
 
+   只发布部分插件时，重复传入 `--plugin=<name>`，例如：
+
+   ```bash
+   pnpm build --plugin=office --plugin=office-pdf --plugin=office-pptx --plugin=office-xlsx
+   ```
+
+   此时只重建指定插件，目录中其他插件保留已有记录和已发布包的哈希，避免同版本重建影响无关下载。
+
 3. 创建名为 `<name>-v<version>` 的 GitHub Release，上传 `dist/<name>-<version>.lexora-extension`。
 4. 提交并推送 `catalog/v1/index.json`（改了能力包时还有 `catalog/v1/packs.json`）。客户端刷新插件目录后即可看到新版本。
 

@@ -79,9 +79,27 @@ async function buildPlugin(name) {
 }
 
 const names = (await readdir(join(root, 'plugins'), { withFileTypes: true })).filter(entry => entry.isDirectory()).map(entry => entry.name).sort()
+const selected = new Set(process.argv.slice(2).map((argument) => {
+  assert(argument.startsWith('--plugin='), `Unknown option: ${argument}; use --plugin=<name>`)
+  const name = argument.slice('--plugin='.length)
+  assert(names.includes(name), `Unknown plugin: ${name}`)
+  return name
+}))
+// A scoped release must retain the published metadata and hashes of every other plugin.
+// Rebuilding an unchanged version can otherwise point the catalog at bytes never uploaded to its Release.
+const previous = selected.size ? JSON.parse(await readFile(join(root, 'catalog/v1/index.json'), 'utf8')).plugins : []
 const plugins = []
-for (const name of names)
-  plugins.push(await buildPlugin(name))
+for (const name of names) {
+  if (!selected.size || selected.has(name)) {
+    plugins.push(await buildPlugin(name))
+  }
+  else {
+    const manifest = JSON.parse(await readFile(join(root, 'plugins', name, 'extension.json'), 'utf8'))
+    const published = previous.find(plugin => plugin.manifest.id === manifest.id)
+    assert(published, `${name}: no existing catalog entry; include it with --plugin=${name}`)
+    plugins.push(published)
+  }
+}
 await mkdir(join(root, 'catalog', 'v1'), { recursive: true })
 await writeFile(join(root, 'catalog', 'v1', 'index.json'), `${JSON.stringify({ schemaVersion: 1, plugins }, null, 2)}\n`)
 // A pack is a list of references to the plugins above, not a package: nothing is built or released for it.
