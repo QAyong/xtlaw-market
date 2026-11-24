@@ -757,7 +757,7 @@
         "name": "Office PPTX",
         "author": "XTLaw官方",
         "description": "用 Slides 编辑器打开、编辑并保存 PPTX，可引用到聊天。",
-        "version": "0.4.22",
+        "version": "0.4.23",
         "icon": "icon.svg",
         "categories": [
           "办公"
@@ -805,9 +805,9 @@
       "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTYuNzUgOGEuNzUuNzUgMCAwIDAgMCAxLjVoNC41YS43NS43NSAwIDAgMCAwLTEuNWgtNC41ek02IDExLjc1YS43NS43NSAwIDAgMSAuNzUtLjc1aDguNWEuNzUuNzUgMCAwIDEgMCAxLjVoLTguNWEuNzUuNzUgMCAwIDEtLjc1LS43NXpNNi43NSAxNGEuNzUuNzUgMCAwIDAgMCAxLjVoNi41YS43NS43NSAwIDAgMCAwLTEuNWgtNi41em0tMi0xMEEyLjc1IDIuNzUgMCAwIDAgMiA2Ljc1djEwLjVBMi43NSAyLjc1IDAgMCAwIDQuNzUgMjBoMTQuNUEyLjc1IDIuNzUgMCAwIDAgMjIgMTcuMjVWNi43NUEyLjc1IDIuNzUgMCAwIDAgMTkuMjUgNEg0Ljc1ek0zLjUgNi43NWMwLS42OS41Ni0xLjI1IDEuMjUtMS4yNWgxNC41Yy42OSAwIDEuMjUuNTYgMS4yNSAxLjI1djEwLjVjMCAuNjktLjU2IDEuMjUtMS4yNSAxLjI1SDQuNzVjLS42OSAwLTEuMjUtLjU2LTEuMjUtMS4yNVY2Ljc1eiIgZmlsbD0iI0Q5NzMwRCIvPjwvc3ZnPgo=",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-pptx-v0.4.22/office-pptx-0.4.22.lexora-extension",
-        "sha256": "56f0852e74531efcb4b267d275aa5ff17515811d7714cdbd7e4243eb632be601",
-        "size": 6101757
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/office-pptx-v0.4.23/office-pptx-0.4.23.lexora-extension",
+        "sha256": "7c5afdcd9375fda5fd3b9bb29c596f2547fd1e97ccd8ec6a6b286aa376ce61bb",
+        "size": 6102305
       }
     },
     {
