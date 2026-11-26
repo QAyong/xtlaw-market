@@ -913,7 +913,7 @@
         "id": "pcbed1a21022e43b388ccce09fd4647b5.transcript-player",
         "name": "XTLaw播放器",
         "description": "播放音视频并阅读文字稿，不替换内置播放器的默认打开方式。",
-        "version": "0.2.8",
+        "version": "0.2.12",
         "icon": "icon.svg",
         "entry": "host.js",
         "apiVersion": 4,
@@ -977,9 +977,9 @@
       "iconUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJYVExhd+aSreaUvuWZqCI+CiAgPHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0IiByeD0iNiIgZmlsbD0iIzM2NUVEQyIvPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik02LjIgNy4xdjkuOGw3LjYtNC45eiIvPgogIDxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNS40IDhoNC40djEuN2gtNC40em0wIDMuMWgzLjN2MS43aC0zLjN6bTAgMy4xaDIuMnYxLjdoLTIuMnoiLz4KPC9zdmc+Cg==",
       "repository": "https://github.com/QAyong/xtlaw-market",
       "artifact": {
-        "url": "https://github.com/QAyong/xtlaw-market/releases/download/transcript-player-v0.2.8/transcript-player-0.2.8.lexora-extension",
-        "sha256": "58d12b17de458b0e18c82f0576057c7fbe252351092bddce7a5a89545f9e7f8f",
-        "size": 61556
+        "url": "https://github.com/QAyong/xtlaw-market/releases/download/transcript-player-v0.2.12/transcript-player-0.2.12.lexora-extension",
+        "sha256": "6b19c21748b9b76553529557fe2ea2850894829213acdf8909ba4870fca566f9",
+        "size": 62355
       }
     }
   ]
